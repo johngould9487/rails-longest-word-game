@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Result</h1>
+  <% if !@found %>
+    <p>Sorry but <%= params[:guess].upcase %> is not a valid english word!</p>
+  <% elsif !@in_grid %>
+    <p>Sorry but <%= params[:guess].upcase %> can't be built out of <%= params[:letters].split(' ').join(',').upcase %></p>
+  <% else %>
+    <p><em>Congratulations!</em> <%= params[:guess].upcase %> is valid!</p>
+    <p>Score: <%= @score %></p>
+  <% end %>
+  <%= link_to 'Play again', '/new' %>
+</div>
